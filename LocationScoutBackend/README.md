@@ -38,8 +38,15 @@ git push heroku master
 heroku open
 ```
 
-## Swagger Documentation
-https://shootingspots.herokuapp.com/swagger-ui.html#/
+##  Documentation
+
+```
+Swagger - https://shootingspots.herokuapp.com/swagger-ui.html#/
+Apis - curl https://shootingspots.herokuapp.com/ 
+
+```
+
+
 
 
 ## Built With
