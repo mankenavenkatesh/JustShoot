@@ -23,6 +23,7 @@ This is a marketplace to make shooting easy. we believe creators should only foc
 - Makers can search for actors, actress, cameraman, assistant directors etc. 
 
 
+# Architecture
 ## Components
 ### FrontEnd Android Mobile App
 - LocationScoutAndroidApp module contains Android App code with detail instructions in README.md
