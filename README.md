@@ -1,6 +1,8 @@
-# ShootingSpots
+# JustShoot
 
-This is a marketplace shooting locations.
+This is a marketplace webapp for shooting locations. Location Providers can enroll, add their shooting locations, manage the availability of locations for shoot, etc. Location Scouters can search the desired location, book the location, find nearby facilities of a location etc.
+
+
 
 ## Components
 
