@@ -1,11 +1,13 @@
 # JustShoot
 
-This is a marketplace webapp for shooting locations. Location Providers can enroll, add their shooting locations, manage the availability of locations for shoot, etc. Location Scouters can search the desired location, book the location, find nearby facilities of a location etc.
-
+This is a marketplace for everything required to do shooting. This includes
+- Shooting locations
+- Costumes
+- Equipment
+- Crew etc
 
 
 ## Components
-
 ### FrontEnd Android Mobile App
 - LocationScoutAndroidApp module contains Android App code with detail instructions in README.md
 
@@ -21,7 +23,6 @@ This is a marketplace webapp for shooting locations. Location Providers can enro
 
 
 ## Participants
-
 - Location Owners can enroll, add their shooting locations, manage the availability of locations for shoot, etc. 
 - Location Scouters can search the desired location, book the location, find nearby facilities of a location etc.
  
