@@ -7,14 +7,16 @@ This is a marketplace shooting locations.
 ### FrontEnd Android Mobile App
 ```
 LocationScoutAndroidApp Project contains Android App code with detail instructions in README.md
-Startup Steps - https://github.com/mankenavenkatesh/LocationScout/tree/master/LocationScoutFrontEnd
 ```
+Startup Steps - https://github.com/mankenavenkatesh/LocationScout/tree/master/LocationScoutFrontEnd
+
 
 ### Backend Web App
 ```
 LocationScoutBackend Project contains Backend code with detail instructions in README.md
-Startup Steps - https://github.com/mankenavenkatesh/LocationScout/tree/master/LocationScoutBackend
 ```
+Startup Steps - https://github.com/mankenavenkatesh/LocationScout/tree/master/LocationScoutBackend
+
 
 
 ## Participants
