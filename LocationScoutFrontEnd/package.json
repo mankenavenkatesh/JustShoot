@@ -9,6 +9,7 @@
     "react-scripts": "^1.0.17"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "lodash.isempty": "^4.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
