@@ -6,6 +6,22 @@ This is a marketplace for everything required to do shooting. This includes
 - Equipment
 - Crew etc
 
+## Shooting Locations
+- Location Owners can enroll, add their shooting locations, manage the availability of locations for shoot, etc. 
+- Location Scouters can search the desired location, book the location, find nearby facilities of a location etc.
+ 
+## Costumes
+- Costume owners can enroll, add their costumes, etc.
+- Makers can search desired costumes, book them for rent etc.
+
+## Equipment
+- Equipment Owners can enroll, add their equipment like cameras,cars etc, manage the availability of equipment for shoot, etc. 
+- Makers can search the desired equipment, book the equipment, find equipment nearby etc.
+ 
+## Crew
+- All 24 crafts can enroll, create their profile, add their skills etc
+- Makers can search for actors, actress, cameraman, assistant directors etc. 
+
 
 ## Components
 ### FrontEnd Android Mobile App
@@ -22,9 +38,3 @@ This is a marketplace for everything required to do shooting. This includes
 
 
 
-## Participants
-- Location Owners can enroll, add their shooting locations, manage the availability of locations for shoot, etc. 
-- Location Scouters can search the desired location, book the location, find nearby facilities of a location etc.
- 
- 
- 
