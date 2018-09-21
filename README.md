@@ -1,6 +1,6 @@
 # JustShoot
 
-This is a marketplace for everything required to do shooting. This includes
+This is a marketplace to make shooting easy. we believe creators should only focus on creativity. Rest all should be taken care.This includes
 - Shooting locations
 - Costumes
 - Equipment
