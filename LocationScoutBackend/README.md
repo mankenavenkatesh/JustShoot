@@ -43,7 +43,7 @@ heroku open
 ```
 Swagger - https://shootingspots.herokuapp.com/swagger-ui.html#/
 Apis - curl https://shootingspots.herokuapp.com/ 
-
+H2 DB Console - 
 ```
 
 
@@ -77,3 +77,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Hat tip to anyone who's code was used
 * Inspiration
 * etc
+
+## References
+* https://www.callicoder.com/spring-boot-spring-security-jwt-mysql-react-app-part-2/
