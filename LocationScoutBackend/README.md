@@ -75,4 +75,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * etc
 
 ## References
+* https://github.com/bfwg/springboot-jwt-starter
 * https://www.callicoder.com/spring-boot-spring-security-jwt-mysql-react-app-part-2/
