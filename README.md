@@ -6,19 +6,19 @@ This is a marketplace to make shooting easy. we believe creators should only foc
 - Equipment
 - Crew etc
 
-## Shooting Locations
+### Shooting Locations
 - Location Owners can enroll, add their shooting locations, manage the availability of locations for shoot, etc. 
 - Location Scouters can search the desired location, book the location, find nearby facilities of a location etc.
  
-## Costumes
+### Costumes
 - Costume owners can enroll, add their costumes, etc.
 - Makers can search desired costumes, book them for rent etc.
 
-## Equipment
+### Equipment
 - Equipment Owners can enroll, add their equipment like cameras,cars etc, manage the availability of equipment for shoot, etc. 
 - Makers can search the desired equipment, book the equipment, find equipment nearby etc.
  
-## Crew
+### Crew
 - All 24 crafts can enroll, create their profile, add their skills etc
 - Makers can search for actors, actress, cameraman, assistant directors etc. 
 
