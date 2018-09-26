@@ -1,64 +1,67 @@
-import { Route, Link } from 'react-router-dom';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import MyLocationsList from '../MyLocationsList';
-import {fetchMyLocations} from './../../actions/shootingLocationActions';
+import { Route, Link } from "react-router-dom";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import MyLocationsList from "../MyLocationsList";
+import { fetchMyLocations } from "./../../actions/shootingLocationActions";
 
 class MyLocations extends Component {
+  componentDidMount() {
+    const myId = this.props.loggedInId;
+    this.props.fetchMyLocations(myId);
+  }
+  render() {
+    console.log("In My Locations");
+    console.log(this.props.myLocations);
+    return (
+      <div class="dashboard-content">
+        <div id="titlebar">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>My Locations</h2>
+              <nav id="breadcrumbs">
+                <ul>
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">Dashboard</a>
+                  </li>
+                  <li>My Locations</li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
 
-	componentDidMount() { 
-		const myId = this.props.loggedInId;
-		this.props.fetchMyLocations(myId);
-	}
-  render() {    
-	  console.log("In My Locations");
-	  console.log(this.props.myLocations);
-    return (      
-          
-        <div class="dashboard-content">
-		<div id="titlebar">
-			<div class="row">
-				<div class="col-md-12">
-					<h2>My Locations</h2>
-					<nav id="breadcrumbs">
-						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Dashboard</a></li>
-							<li>My Locations</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-12 col-md-12">
-				<div class="dashboard-list-box margin-top-0">
-					<h4>My Locations</h4>
-					<ul>
-
-					<MyLocationsList locationOwnerId={this.props.loggedInId} myLocations={this.props.myLocations} />						
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
-			</div>
-		</div>
-	</div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="dashboard-list-box margin-top-0">
+              <h4>My Locations</h4>
+              <ul>
+                <MyLocationsList
+                  locationOwnerId={this.props.loggedInId}
+                  myLocations={this.props.myLocations}
+                />
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
-
 function mapStateToProps(state) {
-	console.log("is id present");
-	console.log(state.auth.user.id);
-    return {
-		// myLocations: state.myLocations
-		myLocations: state.myLocations,
-		loggedInId: state.auth.user.id
-    };
-  }
+  return {
+    myLocations: state.myLocations,
+    loggedInId: state.auth.user.id
+  };
+}
 
-export default connect(mapStateToProps, {fetchMyLocations})(MyLocations);
+export default connect(
+  mapStateToProps,
+  { fetchMyLocations }
+)(MyLocations);

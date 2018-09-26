@@ -1,8 +1,10 @@
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
-export const SET_MY_LOCATIONS = 'SET_MY_LOCATIONS';
-export const ADD_MY_LOCATION = 'ADD_MY_LOCATION';
-export const LOCATION_FETCHED = 'LOCATION_FETCHED';
-export const LOCATION_DELETED = 'LOCATION_DELETED';
-export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
-export const DELETE_FLASH_MESSAGE = 'DELETE_FLASH_MESSAGE';
-
+export const SET_MY_LOCATIONS = "SET_MY_LOCATIONS";
+export const ADD_MY_LOCATION = "ADD_MY_LOCATION";
+export const LOCATION_FETCHED = "LOCATION_FETCHED";
+export const LOCATION_DELETED = "LOCATION_DELETED";
+export const ADD_FLASH_MESSAGE = "ADD_FLASH_MESSAGE";
+export const DELETE_FLASH_MESSAGE = "DELETE_FLASH_MESSAGE";
+export const AUTH_USER = "auth_user";
+export const UNAUTH_USER = "unauth_user";
+export const AUTH_ERROR = "auth_error";
+export const FETCH_FEATURE = "fetch_feature";

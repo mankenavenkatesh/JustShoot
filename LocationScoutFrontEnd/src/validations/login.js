@@ -1,18 +1,18 @@
-import Validator from 'validator';
-import isEmpty from 'lodash.isempty';
+import Validator from "validator";
+import isEmpty from "lodash.isempty";
 
-export default function validateInput(data){
+export default function validateInput(data) {
+  let errors = {};
 
-    let errors = {};
+  if (Validator.isEmpty(data.username)) {
+    errors.userName = "This field is required";
+  }
+  if (Validator.isEmpty(data.password)) {
+    errors.password = "This field is required";
+  }
 
-    if(Validator.isEmpty(data.userName)){
-        errors.userName = 'This field is required';
-    }    
-    if(Validator.isEmpty(data.password)){
-        errors.password = 'This field is required';
-    }
-    
-    return {
-        errors, isValid : isEmpty(errors)
-    }
+  return {
+    errors,
+    isValid: isEmpty(errors)
+  };
 }
