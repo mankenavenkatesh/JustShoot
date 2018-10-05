@@ -8,3 +8,7 @@ How to start?
 Where is the code?
 1) Front End Code lies in public folder.
 2) server side code is server.js.
+
+
+References
+- Redux tutorial - https://www.valentinog.com/blog/react-redux-tutorial-beginners/#React_Redux_tutorial_what_you_will_learn
