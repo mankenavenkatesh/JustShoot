@@ -8,9 +8,9 @@ import { AUTH_USER } from "./types";
 
 const target = document.querySelector("#root");
 
-const token = localStorage.getItem("token");
+const authorization = localStorage.getItem("authorization");
 // if we have a token, consiger the user to be signed in
-if (token) {
+if (authorization) {
   // we need to update application state
   store.dispatch({ type: AUTH_USER });
 }

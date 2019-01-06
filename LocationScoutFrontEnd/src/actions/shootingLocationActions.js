@@ -41,7 +41,7 @@ export function locationFetched(location) {
 export function saveLocation(location) {
   return function(dispatch) {
     return locationsApi
-      .addUserLocation(location)
+      .addUserLocation(location, 1)
       .then(newlocation => {
         dispatch(addMyLocation(newlocation));
         return newlocation;

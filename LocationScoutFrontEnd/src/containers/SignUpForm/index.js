@@ -9,6 +9,7 @@ class SignUpForm extends React.Component {
     super(props);
     this.state = {
       username: "",
+      email: "",
       password: "",
       passwordConfirmation: "",
       errors: {},
@@ -34,23 +35,35 @@ class SignUpForm extends React.Component {
     e.preventDefault();
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
-      this.props.userSignupRequest(this.state).then(
-        data => {
-          console.log("Signup Successful");
-          // debugger
-          this.props.addFlashMessage({
-            type: "success",
-            text: "You Signed Up Successfully. Time to Sign in"
-          });
+      this.props
+        .userSignupRequest({
+          email: this.state.email,
+          password: this.state.password,
+          role: "user"
+        })
+        .then(
+          data => {
+            console.log("Signup Successful");
+            debugger;
+            this.props.addFlashMessage({
+              type: "success",
+              text: "You Signed Up Successfully. Time to Sign in"
+            });
 
-          this.props.signInDialogClose();
-          history.push("/");
-        },
-        ({ data }) => {
-          // debugger
-          this.setState({ errors: data });
-        }
-      );
+            this.props.signInDialogClose();
+            history.push("/");
+          },
+          ({ data }) => {
+            debugger;
+            this.props.addFlashMessage({
+              type: "error",
+              text: "Your Sign Up Failed. Please Sign Up Again"
+            });
+
+            this.props.signInDialogClose();
+            history.push("/");
+          }
+        );
     }
   }
 
@@ -72,30 +85,20 @@ class SignUpForm extends React.Component {
                 onChange={this.onChange}
               />
             </label>
-            {errors.username && (
-              <span style={{ color: "red" }} className="help-block">
-                {errors.username}
-              </span>
-            )}
           </p>
           <p class="form-row form-row-wide">
-            <label for="email2">
+            <label for="email">
               Email Address:
               <i class="im im-icon-Mail" />
               <input
                 type="text"
                 class="input-text"
                 name="email"
-                id="email2"
+                id="email"
                 value={this.state.email}
                 onChange={this.onChange}
               />
             </label>
-            {errors.email && (
-              <span style={{ color: "red" }} className="help-block">
-                {errors.email}
-              </span>
-            )}
           </p>
 
           <p class="form-row form-row-wide">
@@ -111,11 +114,6 @@ class SignUpForm extends React.Component {
                 onChange={this.onChange}
               />
             </label>
-            {errors.password && (
-              <span style={{ color: "red" }} className="help-block">
-                {errors.password}
-              </span>
-            )}
           </p>
 
           <p class="form-row form-row-wide">
@@ -131,11 +129,6 @@ class SignUpForm extends React.Component {
                 onChange={this.onChange}
               />
             </label>
-            {errors.passwordConfirmation && (
-              <span style={{ color: "red" }} className="help-block">
-                {errors.passwordConfirmation}
-              </span>
-            )}
           </p>
           <div className="form-group">
             <input

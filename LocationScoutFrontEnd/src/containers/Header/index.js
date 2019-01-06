@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import SignInDialog from "../SignInDialog";
 import { logout } from "../../actions/sessionActions";
 import { connect } from "react-redux";
-import { history } from "../../store";
 
 class Header extends Component {
   logout(e) {
@@ -48,7 +47,7 @@ class Header extends Component {
         <a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim">
           <i class="sl sl-icon-login" /> Sign In
         </a>
-        <a href="dashboard-add-listing.html" class="button border with-icon">
+        <a href="/dashboard/addLocation" class="button border with-icon">
           Add Listing <i class="sl sl-icon-plus" />
         </a>
       </div>

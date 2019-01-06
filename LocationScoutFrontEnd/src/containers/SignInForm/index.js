@@ -7,7 +7,7 @@ class SignInForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: "",
       errors: {},
       isLoading: false
@@ -30,20 +30,13 @@ class SignInForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    // if(this.isValid()){
     this.setState({ errors: {}, isLoading: true });
-    this.props.userLoginRequest(this.state).then(
-      data => {
-        console.log("Sign In Successful");
-        this.props.signInDialogClose();
-        history.push("/");
-      },
-      ({ data }) => {
-        console.log("sign in failed. ");
-        this.setState({ errors: data, isLoading: false });
-      }
-    );
-    // }
+    this.props.userLoginRequest({
+      email: this.state.email,
+      password: this.state.password
+    });
+    this.props.signInDialogClose();
+    history.push("/");
   }
 
   render() {
@@ -52,21 +45,21 @@ class SignInForm extends React.Component {
       <div>
         <form onSubmit={this.onSubmit} class="login">
           <p class="form-row form-row-wide">
-            <label for="username">
-              username:
+            <label for="email">
+              email:
               <i class="im im-icon-Male" />
               <input
                 type="text"
                 class="input-text"
-                name="username"
-                id="username"
-                value={this.props.username}
+                name="email"
+                id="email"
+                value={this.props.email}
                 onChange={this.onChange}
               />
             </label>
-            {errors.username && (
+            {errors.email && (
               <span style={{ color: "red" }} className="help-block">
-                {errors.username}
+                {errors.email}
               </span>
             )}
           </p>

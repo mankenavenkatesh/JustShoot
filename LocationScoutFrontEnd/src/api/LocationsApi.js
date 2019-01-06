@@ -30,7 +30,7 @@ class LocationsApi {
       });
   }
 
-  static addUserLocation(location) {
+  static addUserLocation(location, locationOwnerId) {
     debugger;
     const request = new Request(
       BASE_URL + "locationOwners/" + locationOwnerId + "/locations",
