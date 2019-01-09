@@ -1,6 +1,7 @@
 import locationsApi from "../api/LocationsApi";
 import * as types from "../types";
 import { browserHistory } from "react-router";
+import { addFlashMessage } from "./flashMessageAction.js";
 
 export function fetchMyLocations(locationOwnerId) {
   // debugger
@@ -41,13 +42,27 @@ export function locationFetched(location) {
 export function saveLocation(location) {
   return function(dispatch) {
     return locationsApi
-      .addUserLocation(location, 1)
-      .then(newlocation => {
-        dispatch(addMyLocation(newlocation));
-        return newlocation;
+      .addUserLocation(location)
+      .then(response => {
+        if (response.status == "200") {
+          dispatch(
+            addFlashMessage({
+              type: "success",
+              text: "Your Location Added Successfully."
+            })
+          );
+          console.log(response);
+          dispatch(addMyLocation(response.data));
+        }
       })
       .catch(error => {
         console.log(error);
+        dispatch(
+          addFlashMessage({
+            type: "error",
+            text: "Error while adding Location. Please Refresh and retry"
+          })
+        );
       });
   };
 }

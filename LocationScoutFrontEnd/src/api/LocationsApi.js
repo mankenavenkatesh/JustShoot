@@ -1,4 +1,6 @@
 import { BASE_URL } from "./UrlApi";
+import axios from "axios";
+
 class LocationsApi {
   static getAllLocations() {
     return fetch(BASE_URL + "locations")
@@ -30,26 +32,16 @@ class LocationsApi {
       });
   }
 
-  static addUserLocation(location, locationOwnerId) {
+  static addUserLocation(location) {
     debugger;
-    const request = new Request(
-      BASE_URL + "locationOwners/" + locationOwnerId + "/locations",
-      {
-        method: "POST",
-        headers: new Headers({
-          "Content-Type": "application/json"
-        }),
-        body: JSON.stringify(location)
+    var endpoint = BASE_URL + "location/";
+    var authorization = localStorage.getItem("authorization");
+    return axios.post(endpoint, JSON.stringify(location), {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization
       }
-    );
-
-    return fetch(request)
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        return error;
-      });
+    });
   }
 
   static getLocation(locationId) {

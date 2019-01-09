@@ -32,19 +32,22 @@ class AddLocation extends Component {
   onSubmit(e) {
     e.preventDefault();
     if (this.isValid()) {
-      const { locationName } = this.state;
       this.setState({ errors: {}, isLoading: true });
-      this.props.saveLocation({ locationName }).then(
-        data => {
-          console.log("Location Added Successful");
-          console.log(data.id);
-          console.log(data.locationName);
-          history.push("/myLocations");
-        },
-        ({ data }) => {
-          this.setState({ errors: data });
-        }
-      );
+      this.props.saveLocation({
+        locationName: this.state.locationName
+      });
+
+      // this.props.saveLocation({ locationName }).then(
+      //   data => {
+      //     console.log("Location Added Successful");
+      //     console.log(data.id);
+      //     console.log(data.locationName);
+      //     history.push("/myLocations");
+      //   },
+      //   ({ data }) => {
+      //     this.setState({ errors: data });
+      //   }
+      // );
     }
   }
 
