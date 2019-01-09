@@ -10,12 +10,6 @@ export function fetchMyLocations() {
       .getAllMyLocations()
       .then(response => {
         if (response.status == "200") {
-          dispatch(
-            addFlashMessage({
-              type: "success",
-              text: "Your Locations are loaded."
-            })
-          );
           console.log(response);
           // dispatch(addMyLocation(response.data));
           dispatch(setMyLocations(response.data));
@@ -52,6 +46,34 @@ export function fetchLocation(locationId) {
 
 export function locationFetched(location) {
   return { type: types.LOCATION_FETCHED, location };
+}
+
+export function updateLocation(location, locationId) {
+  return function(dispatch) {
+    return locationsApi
+      .updateLocation(location, locationId)
+      .then(response => {
+        if (response.status == "200") {
+          dispatch(
+            addFlashMessage({
+              type: "success",
+              text: "Your Location Updated Successfully."
+            })
+          );
+          console.log(response);
+          dispatch(addMyLocation(response.data));
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        dispatch(
+          addFlashMessage({
+            type: "error",
+            text: "Error while updating Location. Please Refresh and retry"
+          })
+        );
+      });
+  };
 }
 
 export function saveLocation(location) {

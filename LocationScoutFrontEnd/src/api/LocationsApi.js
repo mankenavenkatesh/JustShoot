@@ -33,6 +33,18 @@ class LocationsApi {
       });
   }
 
+  static updateLocation(location, locationId) {
+    debugger;
+    var endpoint = BASE_URL + "location/" + locationId;
+    var authorization = localStorage.getItem("authorization");
+    return axios.put(endpoint, JSON.stringify(location), {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization
+      }
+    });
+  }
+
   static addLocation(location) {
     debugger;
     var endpoint = BASE_URL + "location/";
