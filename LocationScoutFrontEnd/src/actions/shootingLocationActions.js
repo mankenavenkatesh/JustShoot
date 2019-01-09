@@ -86,15 +86,24 @@ export function addMyLocation(newlocation) {
   return { type: types.ADD_MY_LOCATION, newlocation };
 }
 
-export function deleteLocation(locationOwnerId, locationId) {
+export function deleteLocation(locationId) {
   // debugger
   return function(dispatch) {
     // debugger
     return locationsApi
-      .deleteLocation(locationOwnerId, locationId)
-      .then(locationDeleted => {
-        dispatch(locationDeleted(locationId));
-        return locationDeleted;
+      .deleteLocation(locationId)
+      .then(response => {
+        if (response.status == "200") {
+          debugger;
+          dispatch(
+            addFlashMessage({
+              type: "success",
+              text: "Your Location Deleted Successfully."
+            })
+          );
+          console.log(response);
+          dispatch(locationDeleted(response.data.id));
+        }
       })
       .catch(error => {
         console.log(error);

@@ -57,29 +57,16 @@ class LocationsApi {
       });
   }
 
-  static deleteLocation(locationOwnerId, locationId) {
+  static deleteLocation(locationId) {
     debugger;
-    const request = new Request(
-      BASE_URL +
-        "locationOwners/" +
-        locationOwnerId +
-        "/locations/" +
-        locationId,
-      {
-        method: "DELETE",
-        headers: new Headers({
-          "Content-Type": "application/json"
-        })
+    var endpoint = BASE_URL + "location/" + locationId;
+    var authorization = localStorage.getItem("authorization");
+    return axios.delete(endpoint, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization
       }
-    );
-
-    return fetch(request)
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        return error;
-      });
+    });
   }
 }
 

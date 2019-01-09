@@ -12,7 +12,7 @@ export default function shootinglocations(state = [], action = {}) {
       return [...state, action.newlocation];
 
     case LOCATION_DELETED:
-      return state.filter(item => item._id !== action.locationId);
+      return state.filter(item => item.id !== action.locationId);
 
     case LOCATION_FETCHED:
       const index = state.findIndex(
