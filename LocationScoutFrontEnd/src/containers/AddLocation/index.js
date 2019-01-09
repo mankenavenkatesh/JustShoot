@@ -36,6 +36,7 @@ class AddLocation extends Component {
       this.props.saveLocation({
         locationName: this.state.locationName
       });
+      history.push("/");
 
       // this.props.saveLocation({ locationName }).then(
       //   data => {

@@ -2,13 +2,9 @@ import { Route, Link } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import MyLocationsList from "../MyLocationsList";
-import { fetchMyLocations } from "./../../actions/shootingLocationActions";
+// import { fetchMyLocations } from "./../../actions/shootingLocationActions";
 
 class MyLocations extends Component {
-  componentDidMount() {
-    const myId = this.props.loggedInId;
-    this.props.fetchMyLocations(myId);
-  }
   render() {
     console.log("In My Locations");
     console.log(this.props.myLocations);
@@ -56,12 +52,11 @@ class MyLocations extends Component {
 
 function mapStateToProps(state) {
   return {
-    myLocations: state.myLocations,
-    loggedInId: state.auth.user.id
+    myLocations: state.myLocations
   };
 }
 
 export default connect(
   mapStateToProps,
-  { fetchMyLocations }
+  null
 )(MyLocations);

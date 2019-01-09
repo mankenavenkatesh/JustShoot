@@ -3,17 +3,32 @@ import * as types from "../types";
 import { browserHistory } from "react-router";
 import { addFlashMessage } from "./flashMessageAction.js";
 
-export function fetchMyLocations(locationOwnerId) {
+export function fetchMyLocations() {
   // debugger
   return function(dispatch) {
     return locationsApi
-      .getLocationsById(locationOwnerId)
-      .then(myLocations => {
-        dispatch(setMyLocations(myLocations));
-        return myLocations;
+      .getAllMyLocations()
+      .then(response => {
+        if (response.status == "200") {
+          dispatch(
+            addFlashMessage({
+              type: "success",
+              text: "Your Locations are loaded."
+            })
+          );
+          console.log(response);
+          // dispatch(addMyLocation(response.data));
+          dispatch(setMyLocations(response.data));
+        }
       })
       .catch(error => {
         console.log(error);
+        dispatch(
+          addFlashMessage({
+            type: "error",
+            text: "Error while fetching all Locations. Please Refresh and retry"
+          })
+        );
       });
   };
 }
@@ -42,7 +57,7 @@ export function locationFetched(location) {
 export function saveLocation(location) {
   return function(dispatch) {
     return locationsApi
-      .addUserLocation(location)
+      .addLocation(location)
       .then(response => {
         if (response.status == "200") {
           dispatch(

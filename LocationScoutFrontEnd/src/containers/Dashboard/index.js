@@ -7,7 +7,14 @@ import AddLocation from "../AddLocation";
 import EditLocation from "../EditLocation";
 import MyLocations from "../MyLocations";
 import MyProfile from "../MyProfile";
+import { fetchMyLocations } from "./../../actions/shootingLocationActions";
+import { connect } from "react-redux";
+
 class Dashboard extends Component {
+  componentDidMount() {
+    this.props.fetchMyLocations();
+  }
+
   render() {
     return (
       <div>
@@ -38,4 +45,7 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default connect(
+  null,
+  { fetchMyLocations }
+)(Dashboard);

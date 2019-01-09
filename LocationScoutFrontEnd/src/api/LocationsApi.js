@@ -12,14 +12,15 @@ class LocationsApi {
       });
   }
 
-  static getLocationsById(locationOwnerId) {
-    return fetch(BASE_URL + "locationOwners/" + locationOwnerId + "/locations")
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        return error;
-      });
+  static getAllMyLocations() {
+    var endpoint = BASE_URL + "location/";
+    var authorization = localStorage.getItem("authorization");
+    return axios.get(endpoint, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization
+      }
+    });
   }
 
   static getLocationById(locationId) {
@@ -32,7 +33,7 @@ class LocationsApi {
       });
   }
 
-  static addUserLocation(location) {
+  static addLocation(location) {
     debugger;
     var endpoint = BASE_URL + "location/";
     var authorization = localStorage.getItem("authorization");
