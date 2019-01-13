@@ -1,15 +1,18 @@
-import React from 'react';
-import ShootingLocationContent from '../ShootingLocationContent';
-import ShootingLocationImageSlider from '../ShootingLocationImageSlider';
+import React from "react";
+import ShootingLocationContent from "../ShootingLocationContent";
+import ShootingLocationImageSlider from "../ShootingLocationImageSlider";
 
 class ShootingLocationPage extends React.Component {
   render() {
-    console.log('Rendering Listings Grid');
-    return (        
-       <div>            
-           <ShootingLocationImageSlider />
-           <ShootingLocationContent />           
-       </div>
+    console.log("slajh");
+    console.log(this.props.match.params.locationId);
+    return (
+      <div>
+        <ShootingLocationImageSlider />
+        <ShootingLocationContent
+          locationId={this.props.match.params.locationId}
+        />
+      </div>
     );
   }
 }

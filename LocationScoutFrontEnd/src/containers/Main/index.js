@@ -18,6 +18,7 @@ class Main extends Component {
             component={ShootingLocationPage}
           />
           <Route path="/dashboard" component={RequireAuth(Dashboard)} />
+          {/* <Route path="/dashboard" component={Dashboard} /> */}
         </Switch>
       </main>
     );

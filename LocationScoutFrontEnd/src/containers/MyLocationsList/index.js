@@ -51,14 +51,15 @@ class MyLocationsList extends React.Component {
               onClick={deleteLocation.bind(this, location.id)}
               class="button gray"
             >
-              <i class="sl sl-icon-close" />Delete
+              <i class="sl sl-icon-close" />
+              Delete
             </button>
           </div>
         </li>
       );
     });
 
-    const emptyMessage = <p>There are no games yet in your collection.</p>;
+    const emptyMessage = <p>There are no Locations yet in your collection.</p>;
     // const myLocationsList = (<div className="ui four cards">hyiu</div>);
 
     return (

@@ -3,11 +3,16 @@ import React, { Component } from "react";
 import SignInDialog from "../SignInDialog";
 import { logout } from "../../actions/sessionActions";
 import { connect } from "react-redux";
+import { fetchLocationCategories } from "./../../actions/shootingLocationCategoryActions";
 
 class Header extends Component {
   logout(e) {
     e.preventDefault();
     this.props.logout();
+  }
+
+  componentWillMount() {
+    this.props.fetchLocationCategories();
   }
 
   render() {
@@ -53,6 +58,20 @@ class Header extends Component {
       </div>
     );
 
+    var locationCategories = this.props.locationCategories.map(function(
+      locationCategory
+    ) {
+      return (
+        <li key={locationCategory.id}>
+          {/* <a href="/listings/locations/?filter=all" + {locationCategory.id} >{locationCategory.title}</a> */}
+
+          <Link to={`/listings/locations/?categoryId=${locationCategory.id}`}>
+            {locationCategory.title}
+          </Link>
+        </li>
+      );
+    });
+
     return (
       <header id="header-container">
         <div id="header">
@@ -90,19 +109,12 @@ class Header extends Component {
                       <li>
                         <a href="/listings/locations">Locations</a>
                         <ul>
-                          <li>
-                            <a href="listings-grid-with-sidebar-1.html">All</a>
+                          <li key={0}>
+                            <Link to={`/listings/locations/?categoryId=0`}>
+                              All
+                            </Link>
                           </li>
-                          <li>
-                            <a href="listings-grid-with-sidebar-1.html">
-                              Houses
-                            </a>
-                          </li>
-                          <li>
-                            <a href="listings-grid-with-sidebar-1.html">
-                              Offices
-                            </a>
-                          </li>
+                          {locationCategories}
                         </ul>
                       </li>
                       <li>
@@ -215,10 +227,13 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => {
-  return { authenticated: state.auth.authenticated };
+  return {
+    authenticated: state.auth.authenticated,
+    locationCategories: state.locationCategories
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { logout }
+  { logout, fetchLocationCategories }
 )(Header);

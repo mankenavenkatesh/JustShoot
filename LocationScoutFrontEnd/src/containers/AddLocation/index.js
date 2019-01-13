@@ -10,6 +10,7 @@ class AddLocation extends Component {
     super(props);
     this.state = {
       locationName: "",
+      locationCategoryId: "",
       errors: {},
       isLoading: false
     };
@@ -18,6 +19,7 @@ class AddLocation extends Component {
   }
 
   onChange(e) {
+    debugger;
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -34,7 +36,10 @@ class AddLocation extends Component {
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       this.props.saveLocation({
-        locationName: this.state.locationName
+        locationName: this.state.locationName,
+        locationCategory: {
+          id: this.state.locationCategoryId
+        }
       });
       history.push("/");
 
@@ -54,6 +59,17 @@ class AddLocation extends Component {
 
   render() {
     const { errors } = this.state;
+
+    var locationCategories = this.props.locationCategories.map(function(
+      locationCategory
+    ) {
+      return (
+        <option key={locationCategory.id} value={locationCategory.id}>
+          {locationCategory.title}
+        </option>
+      );
+    });
+
     return (
       <div class="dashboard-content">
         <div id="titlebar">
@@ -111,14 +127,13 @@ class AddLocation extends Component {
                   <div class="row with-forms">
                     <div class="col-md-6">
                       <h5>Category</h5>
-                      <select class="chosen-select-no-single">
-                        <option label="blank">Select Category</option>
-                        <option>Eat & Drink</option>
-                        <option>Shops</option>
-                        <option>Hotels</option>
-                        <option>Restaurants</option>
-                        <option>Fitness</option>
-                        <option>Events</option>
+                      <select
+                        name="locationCategoryId"
+                        onChange={this.onChange}
+                        class="chosen-select-no-single"
+                      >
+                        <option>Select Category</option>
+                        {locationCategories}
                       </select>
                     </div>
                     <div class="col-md-6">
@@ -546,9 +561,12 @@ class AddLocation extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { authenticated: state.auth.authenticated };
-}
+const mapStateToProps = state => {
+  return {
+    authenticated: state.auth.authenticated,
+    locationCategories: state.locationCategories
+  };
+};
 
 export default connect(
   mapStateToProps,

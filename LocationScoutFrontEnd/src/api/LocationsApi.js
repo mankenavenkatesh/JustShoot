@@ -2,14 +2,29 @@ import { BASE_URL } from "./UrlApi";
 import axios from "axios";
 
 class LocationsApi {
-  static getAllLocations() {
-    return fetch(BASE_URL + "locations")
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        return error;
-      });
+  // Authorization header is not required.
+  static filterLocations(categoryId) {
+    if (categoryId > 0) {
+      var endpoint = BASE_URL + "location/all?categoryId=" + categoryId;
+    } else {
+      var endpoint = BASE_URL + "location/all";
+    }
+
+    return axios.get(endpoint, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+  }
+
+  // Authorization header is not required.
+  static getLocationById(locationId) {
+    var endpoint = BASE_URL + "location/" + locationId;
+    return axios.get(endpoint, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
   }
 
   static getAllMyLocations() {
@@ -21,16 +36,6 @@ class LocationsApi {
         Authorization: authorization
       }
     });
-  }
-
-  static getLocationById(locationId) {
-    return fetch(BASE_URL + "locations/" + locationId)
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        return error;
-      });
   }
 
   static updateLocation(location, locationId) {
@@ -55,18 +60,6 @@ class LocationsApi {
         Authorization: authorization
       }
     });
-  }
-
-  static getLocation(locationId) {
-    console.log("getLocation api call");
-    console.log(locationId);
-    return fetch(BASE_URL + "locations/" + locationId)
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        return error;
-      });
   }
 
   static deleteLocation(locationId) {
