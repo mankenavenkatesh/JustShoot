@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import LoginHeader from "../LoginHeader";
 import DashboardContent from "../DashboardContent";
 import DashboardNavigation from "../DashboardNavigation";
 import AddLocation from "../AddLocation";

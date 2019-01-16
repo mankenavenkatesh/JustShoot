@@ -39,7 +39,7 @@ class LocationsApi {
   }
 
   static updateLocation(location, locationId) {
-    debugger;
+    // debugger;
     var endpoint = BASE_URL + "location/" + locationId;
     var authorization = localStorage.getItem("authorization");
     return axios.put(endpoint, JSON.stringify(location), {
@@ -51,19 +51,26 @@ class LocationsApi {
   }
 
   static addLocation(location) {
-    debugger;
+    // debugger;
     var endpoint = BASE_URL + "location/";
+    var bodyFormData = new FormData();
+    bodyFormData.set("locationName", location.locationName);
+    bodyFormData.set("locationCategoryId", location.locationCategoryId);
+    Array.from(location.photos).forEach(photo =>
+      bodyFormData.append("photos", photo)
+    );
+
     var authorization = localStorage.getItem("authorization");
-    return axios.post(endpoint, JSON.stringify(location), {
+    return axios.post(endpoint, bodyFormData, {
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
         Authorization: authorization
       }
     });
   }
 
   static deleteLocation(locationId) {
-    debugger;
+    // debugger;
     var endpoint = BASE_URL + "location/" + locationId;
     var authorization = localStorage.getItem("authorization");
     return axios.delete(endpoint, {

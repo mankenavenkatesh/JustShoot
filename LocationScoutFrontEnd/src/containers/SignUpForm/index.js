@@ -44,7 +44,7 @@ class SignUpForm extends React.Component {
         .then(
           data => {
             console.log("Signup Successful");
-            debugger;
+            // debugger;
             this.props.addFlashMessage({
               type: "success",
               text: "You Signed Up Successfully. Time to Sign in"
@@ -54,7 +54,7 @@ class SignUpForm extends React.Component {
             history.push("/");
           },
           ({ data }) => {
-            debugger;
+            // debugger;
             this.props.addFlashMessage({
               type: "error",
               text: "Your Sign Up Failed. Please Sign Up Again"

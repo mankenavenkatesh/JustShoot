@@ -11,6 +11,7 @@ class AddLocation extends Component {
     this.state = {
       locationName: "",
       locationCategoryId: "",
+      photos: "",
       errors: {},
       isLoading: false
     };
@@ -19,8 +20,12 @@ class AddLocation extends Component {
   }
 
   onChange(e) {
-    debugger;
-    this.setState({ [e.target.name]: e.target.value });
+    // debugger;
+    if (e.target.name === "photos") {
+      this.setState({ [e.target.name]: e.target.files });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
   }
 
   isValid() {
@@ -37,9 +42,8 @@ class AddLocation extends Component {
       this.setState({ errors: {}, isLoading: true });
       this.props.saveLocation({
         locationName: this.state.locationName,
-        locationCategory: {
-          id: this.state.locationCategoryId
-        }
+        locationCategoryId: this.state.locationCategoryId,
+        photos: this.state.photos
       });
       history.push("/");
 
@@ -198,9 +202,17 @@ class AddLocation extends Component {
                     </h3>
                   </div>
                   <div class="submit-section">
-                    <form
+                    {/* <form
                       action="http://www.vasterad.com/file-upload"
                       class="dropzone"
+                    /> */}
+
+                    <input
+                      type="file"
+                      name="photos"
+                      class="dropzone"
+                      onChange={this.onChange}
+                      multiple="multiple"
                     />
                   </div>
                 </div>

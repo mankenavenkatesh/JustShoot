@@ -24,7 +24,7 @@ class MyLocationsList extends React.Component {
           <div class="list-box-listing">
             <div class="list-box-listing-img">
               <a href="#">
-                <img src="/images/listing-item-01.jpg" alt="" />
+                <img src={`/images/${location.photos[0].filename}`} alt="syz" />
               </a>
             </div>
             <div class="list-box-listing-content">

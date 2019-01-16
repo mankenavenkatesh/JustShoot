@@ -12,7 +12,7 @@ class ShootingLocationContent extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
+    // debugger;
     var locationId = this.props.locationId;
     locationsApi
       .getLocationById(locationId)

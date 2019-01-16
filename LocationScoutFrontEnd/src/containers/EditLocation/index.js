@@ -39,7 +39,7 @@ class EditLocation extends Component {
   // }
 
   onChange(e) {
-    debugger;
+    // debugger;
     this.setState({ [e.target.id]: e.target.value });
   }
 
@@ -55,7 +55,7 @@ class EditLocation extends Component {
     e.preventDefault();
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
-      debugger;
+      // debugger;
       this.props.updateLocation(
         { locationName: this.state.locationName },
         this.state.locationId
@@ -144,7 +144,7 @@ class EditLocation extends Component {
 
 function mapStateToProps(state, props) {
   if (props.match.params.locationId) {
-    debugger;
+    // debugger;
     return {
       // locationId : props.match.params.locationId,
       editlocation: state.myLocations.find(function checkLocation(location) {

@@ -26,7 +26,7 @@ export function userLoginRequest(credentials) {
     return sessionApi
       .login(credentials)
       .then(response => {
-        debugger;
+        // debugger;
         if (response.status == "200") {
           dispatch(
             addFlashMessage({
@@ -41,7 +41,7 @@ export function userLoginRequest(credentials) {
         }
       })
       .catch(error => {
-        debugger;
+        // debugger;
         dispatch(
           addFlashMessage({
             type: "error",

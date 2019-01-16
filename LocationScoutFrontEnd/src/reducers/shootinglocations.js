@@ -9,7 +9,7 @@ import {
 export default function shootinglocations(state = [], action = {}) {
   switch (action.type) {
     case ADD_MY_LOCATION:
-      debugger;
+      // debugger;
       return [
         ...state.filter(item => item.id !== action.newlocation.id),
         action.newlocation
