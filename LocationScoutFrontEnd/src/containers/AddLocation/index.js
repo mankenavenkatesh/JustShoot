@@ -12,6 +12,16 @@ class AddLocation extends Component {
       locationName: "",
       locationCategoryId: "",
       photos: "",
+      amenities: [],
+      city: "",
+      state: "",
+      addressdesc: "",
+      zipCode: "",
+      description: "",
+      phoneNumber: "",
+      website: "",
+      email: "",
+      price: "",
       errors: {},
       isLoading: false
     };
@@ -20,9 +30,13 @@ class AddLocation extends Component {
   }
 
   onChange(e) {
-    // debugger;
+    debugger;
     if (e.target.name === "photos") {
       this.setState({ [e.target.name]: e.target.files });
+    } else if (e.target.name === "amenities") {
+      this.setState({
+        [e.target.name]: [...this.state.amenities, e.target.value]
+      });
     } else {
       this.setState({ [e.target.name]: e.target.value });
     }
@@ -43,7 +57,17 @@ class AddLocation extends Component {
       this.props.saveLocation({
         locationName: this.state.locationName,
         locationCategoryId: this.state.locationCategoryId,
-        photos: this.state.photos
+        photos: this.state.photos,
+        amenities: this.state.amenities,
+        city: this.state.city,
+        state: this.state.state,
+        addressdesc: this.state.addressdesc,
+        zipCode: this.state.zipCode,
+        description: this.state.description,
+        phoneNumber: this.state.phoneNumber,
+        website: this.state.website,
+        email: this.state.email,
+        price: this.state.price
       });
       history.push("/");
 
@@ -73,6 +97,24 @@ class AddLocation extends Component {
         </option>
       );
     });
+
+    var locationAmenities = this.props.locationAmenities.map(function(
+      locationAmenity
+    ) {
+      return (
+        <div key={locationAmenity.id} value={locationAmenity.id}>
+          <input
+            id={locationAmenity.id}
+            type="checkbox"
+            name="amenities"
+            value={locationAmenity.id}
+            onChange={this.onChange}
+          />
+          <label for={locationAmenity.id}>{locationAmenity.amenityName}</label>
+        </div>
+      );
+    },
+    this);
 
     return (
       <div class="dashboard-content">
@@ -166,31 +208,50 @@ class AddLocation extends Component {
                     <div class="row with-forms">
                       <div class="col-md-6">
                         <h5>City</h5>
-                        <select class="chosen-select-no-single">
+                        <select
+                          name="city"
+                          class="chosen-select-no-single"
+                          onChange={this.onChange}
+                        >
                           <option label="blank">Select City</option>
-                          <option>New York</option>
-                          <option>Los Angeles</option>
-                          <option>Chicago</option>
-                          <option>Houston</option>
-                          <option>Phoenix</option>
-                          <option>San Diego</option>
-                          <option>Austin</option>
+                          <option>Hyderabad</option>
+                          <option>Bangalore</option>
+                          <option>Mysore</option>
+                          <option>Vizag</option>
                         </select>
                       </div>
                       <div class="col-md-6">
                         <h5>Address</h5>
                         <input
                           type="text"
-                          placeholder="e.g. 964 School Street"
+                          name="addressdesc"
+                          value={this.state.addressdesc}
+                          onChange={this.onChange}
+                          placeholder="e.g. H.No 2-5-529/4/1/b"
                         />
                       </div>
                       <div class="col-md-6">
                         <h5>State</h5>
-                        <input type="text" />
+                        <select
+                          name="state"
+                          class="chosen-select-no-single"
+                          onChange={this.onChange}
+                        >
+                          <option label="blank">Select State</option>
+                          <option>Telangana</option>
+                          <option>Karnataka</option>
+                          <option>Andhra Pradesh</option>
+                        </select>
                       </div>
                       <div class="col-md-6">
                         <h5>Zip-Code</h5>
-                        <input type="text" />
+                        <input
+                          type="text"
+                          name="zipCode"
+                          value={this.state.zipCode}
+                          onChange={this.onChange}
+                          placeholder="e.g. 500103"
+                        />
                       </div>
                     </div>
                   </div>
@@ -226,11 +287,13 @@ class AddLocation extends Component {
                     <h5>Description</h5>
                     <textarea
                       class="WYSIWYG"
-                      name="summary"
+                      name="description"
                       cols="40"
                       rows="3"
-                      id="summary"
+                      id="description"
                       spellcheck="true"
+                      onChange={this.onChange}
+                      value={this.state.description}
                     />
                   </div>
                   <div class="row with-forms">
@@ -238,268 +301,42 @@ class AddLocation extends Component {
                       <h5>
                         Phone <span>(optional)</span>
                       </h5>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        name="phoneNumber"
+                        value={this.state.phoneNumber}
+                        onChange={this.onChange}
+                      />
                     </div>
                     <div class="col-md-4">
                       <h5>
                         Website <span>(optional)</span>
                       </h5>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        name="website"
+                        value={this.state.website}
+                        onChange={this.onChange}
+                      />
                     </div>
                     <div class="col-md-4">
                       <h5>
                         E-mail <span>(optional)</span>
                       </h5>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="row with-forms">
-                    <div class="col-md-4">
-                      <h5 class="fb-input">
-                        <i class="fa fa-facebook-square" /> Facebook{" "}
-                        <span>(optional)</span>
-                      </h5>
                       <input
                         type="text"
-                        placeholder="https://www.facebook.com/"
-                      />
-                    </div>
-                    <div class="col-md-4">
-                      <h5 class="twitter-input">
-                        <i class="fa fa-twitter" /> Twitter{" "}
-                        <span>(optional)</span>
-                      </h5>
-                      <input
-                        type="text"
-                        placeholder="https://www.twitter.com/"
-                      />
-                    </div>
-                    <div class="col-md-4">
-                      <h5 class="gplus-input">
-                        <i class="fa fa-google-plus" /> Google Plus{" "}
-                        <span>(optional)</span>
-                      </h5>
-                      <input
-                        type="text"
-                        placeholder="https://plus.google.com/"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.onChange}
                       />
                     </div>
                   </div>
+
                   <h5 class="margin-top-30 margin-bottom-10">
                     Amenities <span>(optional)</span>
                   </h5>
                   <div class="checkboxes in-row margin-bottom-20">
-                    <input id="check-a" type="checkbox" name="check" />
-                    <label for="check-a">Elevator in building</label>
-
-                    <input id="check-b" type="checkbox" name="check" />
-                    <label for="check-b">Friendly workspace</label>
-
-                    <input id="check-c" type="checkbox" name="check" />
-                    <label for="check-c">Instant Book</label>
-
-                    <input id="check-d" type="checkbox" name="check" />
-                    <label for="check-d">Wireless Internet</label>
-
-                    <input id="check-e" type="checkbox" name="check" />
-                    <label for="check-e">Free parking on premises</label>
-
-                    <input id="check-f" type="checkbox" name="check" />
-                    <label for="check-f">Free parking on street</label>
-
-                    <input id="check-g" type="checkbox" name="check" />
-                    <label for="check-g">Smoking allowed</label>
-
-                    <input id="check-h" type="checkbox" name="check" />
-                    <label for="check-h">Events</label>
-                  </div>
-                </div>
-                <div class="add-listing-section margin-top-45">
-                  <div class="add-listing-headline">
-                    <h3>
-                      <i class="sl sl-icon-clock" /> Opening Hours
-                    </h3>
-                    <label class="switch">
-                      <input type="checkbox" checked />
-                      <span class="slider round" />
-                    </label>
-                  </div>
-                  <div class="switcher-content">
-                    <div class="row opening-day">
-                      <div class="col-md-2">
-                        <h5>Monday</h5>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Opening Time"
-                        >
-                          <option label="Opening Time" />
-                          <option>Closed</option>
-                          <option>1 AM</option>
-                          <option>2 AM</option>
-                          <option>3 AM</option>
-                          <option>4 AM</option>
-                          <option>5 AM</option>
-                          <option>6 AM</option>
-                          <option>7 AM</option>
-                          <option>8 AM</option>
-                          <option>9 AM</option>
-                          <option>10 AM</option>
-                          <option>11 AM</option>
-                          <option>12 AM</option>
-                          <option>1 PM</option>
-                          <option>2 PM</option>
-                          <option>3 PM</option>
-                          <option>4 PM</option>
-                          <option>5 PM</option>
-                          <option>6 PM</option>
-                          <option>7 PM</option>
-                          <option>8 PM</option>
-                          <option>9 PM</option>
-                          <option>10 PM</option>
-                          <option>11 PM</option>
-                          <option>12 PM</option>
-                        </select>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Closing Time"
-                        >
-                          <option label="Closing Time" />
-                          <option>Closed</option>
-                          <option>1 AM</option>
-                          <option>2 AM</option>
-                          <option>3 AM</option>
-                          <option>4 AM</option>
-                          <option>5 AM</option>
-                          <option>6 AM</option>
-                          <option>7 AM</option>
-                          <option>8 AM</option>
-                          <option>9 AM</option>
-                          <option>10 AM</option>
-                          <option>11 AM</option>
-                          <option>12 AM</option>
-                          <option>1 PM</option>
-                          <option>2 PM</option>
-                          <option>3 PM</option>
-                          <option>4 PM</option>
-                          <option>5 PM</option>
-                          <option>6 PM</option>
-                          <option>7 PM</option>
-                          <option>8 PM</option>
-                          <option>9 PM</option>
-                          <option>10 PM</option>
-                          <option>11 PM</option>
-                          <option>12 PM</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="row opening-day js-demo-hours">
-                      <div class="col-md-2">
-                        <h5>Tuesday</h5>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Opening Time"
-                        />
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Closing Time"
-                        />
-                      </div>
-                    </div>
-                    <div class="row opening-day js-demo-hours">
-                      <div class="col-md-2">
-                        <h5>Wednesday</h5>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Opening Time"
-                        />
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Closing Time"
-                        />
-                      </div>
-                    </div>
-                    <div class="row opening-day js-demo-hours">
-                      <div class="col-md-2">
-                        <h5>Thursday</h5>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Opening Time"
-                        />
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Closing Time"
-                        />
-                      </div>
-                    </div>
-                    <div class="row opening-day js-demo-hours">
-                      <div class="col-md-2">
-                        <h5>Friday</h5>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Opening Time"
-                        >
-                          >
-                        </select>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Closing Time"
-                        />
-                      </div>
-                    </div>
-                    <div class="row opening-day js-demo-hours">
-                      <div class="col-md-2">
-                        <h5>Saturday</h5>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Opening Time"
-                        />
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Closing Time"
-                        />
-                      </div>
-                    </div>
-                    <div class="row opening-day js-demo-hours">
-                      <div class="col-md-2">
-                        <h5>Sunday</h5>
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Opening Time"
-                        />
-                      </div>
-                      <div class="col-md-5">
-                        <select
-                          class="chosen-select"
-                          data-placeholder="Closing Time"
-                        />
-                      </div>
-                    </div>
+                    {locationAmenities}
                   </div>
                 </div>
                 <div class="add-listing-section margin-top-45">
@@ -512,42 +349,17 @@ class AddLocation extends Component {
                       <span class="slider round" />
                     </label>
                   </div>
-                  <div class="switcher-content">
+                  <div>
                     <div class="row">
                       <div class="col-md-12">
-                        <table id="pricing-list-container">
-                          <tr class="pricing-list-item pattern">
-                            <td>
-                              <div class="fm-move">
-                                <i class="sl sl-icon-cursor-move" />
-                              </div>
-                              <div class="fm-input pricing-name">
-                                <input type="text" placeholder="Title" />
-                              </div>
-                              <div class="fm-input pricing-ingredients">
-                                <input type="text" placeholder="Description" />
-                              </div>
-                              <div class="fm-input pricing-price">
-                                <input
-                                  type="text"
-                                  placeholder="Price"
-                                  data-unit="USD"
-                                />
-                              </div>
-                              <div class="fm-close">
-                                <a class="delete" href="#">
-                                  <i class="fa fa-remove" />
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
-                        </table>
-                        <a href="#" class="button add-pricing-list-item">
-                          Add Item
-                        </a>
-                        <a href="#" class="button add-pricing-submenu">
-                          Add Category
-                        </a>
+                        <input
+                          type="text"
+                          placeholder=""
+                          data-unit="INR"
+                          name="price"
+                          value={this.state.price}
+                          onChange={this.onChange}
+                        />
                       </div>
                     </div>
                   </div>
@@ -576,7 +388,8 @@ class AddLocation extends Component {
 const mapStateToProps = state => {
   return {
     authenticated: state.auth.authenticated,
-    locationCategories: state.locationCategories
+    locationCategories: state.locationCategories,
+    locationAmenities: state.locationAmenities
   };
 };
 

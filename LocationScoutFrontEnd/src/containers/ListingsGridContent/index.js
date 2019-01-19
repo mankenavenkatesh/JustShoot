@@ -11,7 +11,7 @@ class ListingsGridContent extends React.Component {
 
   filterLocations() {
     locationsApi
-      .filterLocations(this.props.categoryId)
+      .filterLocations(this.props.categoryId, this.props.city)
       .then(response => {
         if (response.status == "200") {
           console.log(response.data);
@@ -33,18 +33,25 @@ class ListingsGridContent extends React.Component {
     var myLocationsList = this.state.locations.map(function(location) {
       return (
         <div key={location.id} class="col-lg-6 col-md-12">
-          <a href="/listings/locations/3" class="listing-item-container">
+          <a
+            href={"/listings/locations/" + location.id}
+            class="listing-item-container"
+          >
             <div class="listing-item">
-              <img src="/images/listing-item-01.jpg" alt="" />
-
-              <div class="listing-badge now-open">Now Open</div>
+              <img
+                src={`/images/${location.photos[0].filename}`}
+                alt={location.locationName}
+              />
+              <div class="listing-badge now-open">Now Available</div>
 
               <div class="listing-item-content">
-                <span class="tag">Eat & Drink</span>
+                <span class="tag">{location.locationCategory.title}</span>
                 <h3>
                   {location.locationName} <i class="verified-icon" />
                 </h3>
-                <span>964 School Street, New York</span>
+                <span>
+                  {location.city}, {location.state}
+                </span>
               </div>
               <span class="like-icon" />
             </div>
@@ -56,7 +63,7 @@ class ListingsGridContent extends React.Component {
       );
     });
 
-    const emptyMessage = <p>There are no games yet in your collection.</p>;
+    const emptyMessage = <p>There are no Locations yet</p>;
     return (
       <div class="container">
         <div class="row">

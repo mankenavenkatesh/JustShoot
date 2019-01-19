@@ -4,11 +4,10 @@ import ShootingLocationImageSlider from "../ShootingLocationImageSlider";
 
 class ShootingLocationPage extends React.Component {
   render() {
-    console.log("slajh");
     console.log(this.props.match.params.locationId);
     return (
       <div>
-        <ShootingLocationImageSlider />
+        {/* <ShootingLocationImageSlider /> */}
         <ShootingLocationContent
           locationId={this.props.match.params.locationId}
         />

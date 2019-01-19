@@ -3,18 +3,11 @@ import React, { Component } from "react";
 import SignInDialog from "../SignInDialog";
 import { logout } from "../../actions/sessionActions";
 import { connect } from "react-redux";
-import { fetchLocationCategories } from "./../../actions/shootingLocationCategoryActions";
-import { fetchLocationAmenities } from "./../../actions/shootingLocationAmenitiesActions";
 
 class Header extends Component {
   logout(e) {
     e.preventDefault();
     this.props.logout();
-  }
-
-  componentWillMount() {
-    this.props.fetchLocationCategories();
-    this.props.fetchLocationAmenities();
   }
 
   render() {
@@ -54,25 +47,11 @@ class Header extends Component {
         <a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim">
           <i class="sl sl-icon-login" /> Sign In
         </a>
-        <a href="/dashboard/addLocation" class="button border with-icon">
+        <a href="dashboard-add-listing.html" class="button border with-icon">
           Add Listing <i class="sl sl-icon-plus" />
         </a>
       </div>
     );
-
-    var locationCategories = this.props.locationCategories.map(function(
-      locationCategory
-    ) {
-      return (
-        <li key={locationCategory.id}>
-          {/* <a href="/listings/locations/?filter=all" + {locationCategory.id} >{locationCategory.title}</a> */}
-
-          <Link to={`/listings/locations/?categoryId=${locationCategory.id}`}>
-            {locationCategory.title}
-          </Link>
-        </li>
-      );
-    });
 
     return (
       <header id="header-container">
@@ -111,12 +90,19 @@ class Header extends Component {
                       <li>
                         <a href="/listings/locations">Locations</a>
                         <ul>
-                          <li key={0}>
-                            <Link to={`/listings/locations/?categoryId=0`}>
-                              All
-                            </Link>
+                          <li>
+                            <a href="listings-grid-with-sidebar-1.html">All</a>
                           </li>
-                          {locationCategories}
+                          <li>
+                            <a href="listings-grid-with-sidebar-1.html">
+                              Houses
+                            </a>
+                          </li>
+                          <li>
+                            <a href="listings-grid-with-sidebar-1.html">
+                              Offices
+                            </a>
+                          </li>
                         </ul>
                       </li>
                       <li>
@@ -229,13 +215,10 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    authenticated: state.auth.authenticated,
-    locationCategories: state.locationCategories
-  };
+  return { authenticated: state.auth.authenticated };
 };
 
 export default connect(
   mapStateToProps,
-  { logout, fetchLocationCategories, fetchLocationAmenities }
+  { logout }
 )(Header);
