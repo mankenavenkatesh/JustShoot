@@ -5,8 +5,9 @@ import { ConnectedRouter } from "react-router-redux";
 import store, { history } from "./store";
 import App from "./containers/app";
 import { AUTH_USER } from "./types";
+import { Route } from "react-router-dom";
 
-const target = document.querySelector("#root");
+const target = document.querySelector("#wrapper");
 
 const authorization = localStorage.getItem("authorization");
 // if we have a token, consiger the user to be signed in
@@ -18,9 +19,7 @@ if (authorization) {
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
-        <App />
-      </div>
+      <Route path="/" component={App} />
     </ConnectedRouter>
   </Provider>,
   target

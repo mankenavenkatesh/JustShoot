@@ -7,6 +7,10 @@ import { fetchLocationCategories } from "./../../actions/shootingLocationCategor
 import { fetchLocationAmenities } from "./../../actions/shootingLocationAmenitiesActions";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
   logout(e) {
     e.preventDefault();
     this.props.logout();
@@ -18,6 +22,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log("sdf" + this.props.pathname);
     const userLinks = (
       <div class="header-widget">
         <div class="user-menu">
@@ -60,7 +65,7 @@ class Header extends Component {
       </div>
     );
 
-    var locationCategories = this.props.locationCategories.map(function(
+    const locationCategories = this.props.locationCategories.map(function(
       locationCategory
     ) {
       return (
@@ -75,8 +80,20 @@ class Header extends Component {
     });
 
     return (
-      <header id="header-container">
-        <div id="header">
+      <header
+        id="header-container"
+        className={
+          this.props.pathname.includes("dashboard")
+            ? "fixed fullwidth dashboard"
+            : ""
+        }
+      >
+        <div
+          id="header"
+          className={
+            this.props.pathname.includes("dashboard") ? "not-sticky" : ""
+          }
+        >
           <div class="container">
             <div class="left-side">
               <div id="logo">

@@ -30,9 +30,13 @@ class MyLocationsList extends React.Component {
             <div class="list-box-listing-content">
               <div class="inner">
                 <h3>
-                  <a href={location.id}>{location.locationName}</a>
+                  <a href={"/listings/locations/" + location.id}>
+                    {location.locationName}
+                  </a>
                 </h3>
-                <span>964 School Street, New York</span>
+                <span>
+                  {location.city}, {location.state}
+                </span>
                 <div class="star-rating" data-rating="3.5">
                   <div class="rating-counter">(12 reviews)</div>
                 </div>

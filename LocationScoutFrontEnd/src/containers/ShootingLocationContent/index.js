@@ -143,10 +143,14 @@ class ShootingLocationContent extends React.Component {
                 <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">
                   Address
                 </h3>
-                <p>
-                  {this.state.location.addressdesc} ,{this.state.location.city}{" "}
-                  ,{this.state.location.state} ,{this.state.location.zipCode}
-                </p>
+                <address>
+                  {this.state.location.addressdesc} ,<br />
+                  City - {this.state.location.city} ,<br />
+                  State - {this.state.location.state} ,<br />
+                  Postal Code - {this.state.location.zipCode}
+                  <br />
+                  Phone Number - {this.state.location.phoneNumber}
+                </address>
               </div>
 
               {/* <div id="listing-map" class="listing-section">
