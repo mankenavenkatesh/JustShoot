@@ -49,7 +49,7 @@ class ShootingLocationContent extends React.Component {
         //       <img src={`/images/${photo.filename}`} class="d-block w-100" alt={photo.filename} />
         //     </div>
         <div key={photo.id}>
-          <img src={`/images/${photo.filename}`} />
+          <img src={photo.filepath} />
           <p className="legend">{photo.filename}</p>
         </div>
       );
