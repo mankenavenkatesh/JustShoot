@@ -82,6 +82,9 @@ class ShootingLocationContent extends React.Component {
                     <span class="listing-tag">
                       {this.state.location.locationCategory.title}
                     </span>
+                    <span class="listing-tag">
+                      {this.state.location.locationType}
+                    </span>
                   </h2>
                   <span>
                     <a href="#listing-location" class="listing-address">

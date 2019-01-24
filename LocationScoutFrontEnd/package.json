@@ -2,12 +2,7 @@
   "name": "create-react-app-redux",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^7.0.0",
-    "prettier": "^1.11.0",
-    "react-scripts": "^1.0.17"
-  },
+  "devDependencies": {},
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
@@ -25,7 +20,11 @@
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0",
     "shortid": "^2.2.8",
-    "validator": "^9.4.1"
+    "validator": "^9.4.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.0",
+    "react-scripts": "^1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",

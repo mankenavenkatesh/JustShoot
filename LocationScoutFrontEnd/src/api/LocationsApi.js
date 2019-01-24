@@ -72,6 +72,7 @@ class LocationsApi {
     bodyFormData.set("website", location.website);
     bodyFormData.set("email", location.email);
     bodyFormData.set("price", location.price);
+    bodyFormData.set("locationType", location.locationType);
 
     Array.from(location.photos).forEach(photo =>
       bodyFormData.append("photos", photo)

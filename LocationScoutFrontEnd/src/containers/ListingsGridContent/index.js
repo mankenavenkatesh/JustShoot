@@ -39,13 +39,14 @@ class ListingsGridContent extends React.Component {
           >
             <div class="listing-item">
               <img
-                src={`/images/${location.photos[0].filename}`}
+                src={location.photos[0].filepath}
                 alt={location.locationName}
               />
               <div class="listing-badge now-open">Now Available</div>
 
               <div class="listing-item-content">
                 <span class="tag">{location.locationCategory.title}</span>
+                <span class="tag">{location.locationType}</span>
                 <h3>
                   {location.locationName} <i class="verified-icon" />
                 </h3>

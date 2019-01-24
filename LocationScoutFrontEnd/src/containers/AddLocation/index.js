@@ -11,6 +11,7 @@ class AddLocation extends Component {
     this.state = {
       locationName: "",
       locationCategoryId: "",
+      locationType: "",
       photos: "",
       amenities: [],
       city: "",
@@ -67,6 +68,7 @@ class AddLocation extends Component {
         phoneNumber: this.state.phoneNumber,
         website: this.state.website,
         email: this.state.email,
+        locationType: this.state.locationType,
         price: this.state.price
       });
       history.push("/");
@@ -183,6 +185,20 @@ class AddLocation extends Component {
                       </select>
                     </div>
                     <div class="col-md-6">
+                      <h5>Location Type</h5>
+                      <select
+                        name="locationType"
+                        onChange={this.onChange}
+                        class="chosen-select-no-single"
+                      >
+                        <option>Select Location Type</option>
+                        <option value="Public"> Public </option>
+                        <option value="Private"> Private </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row with-forms">
+                    <div class="col-md-12">
                       <h5>
                         Keywords{" "}
                         <i
