@@ -91,10 +91,13 @@ class ShootingLocationContent extends React.Component {
                       <i class="fa fa-map-marker" />
                       {this.state.location.city},{this.state.location.state}
                     </a>
-                  </span>
+                  </span>                 
                   <div class="star-rating" data-rating="5">
                     <div class="rating-counter">
-                      <a href="#listing-reviews">(31 reviews)</a>
+                      {/* <a href="#listing-reviews">(0 reviews)</a> */}
+                      <span>
+                      Price - {this.state.location.price} Rs/day
+                    </span>                      
                     </div>
                   </div>
                 </div>
@@ -117,7 +120,7 @@ class ShootingLocationContent extends React.Component {
                     <a href="#listing-address">Address</a>
                   </li>
                   <li>
-                    <a href="#listing-map">Map</a>
+                    {/* <a href="#listing-map">Map</a> */}
                   </li>
                   {/* <li>
                   <a href="#listing-reviews">Reviews</a>
@@ -127,23 +130,25 @@ class ShootingLocationContent extends React.Component {
                 </li> */}
                 </ul>
               </div>
-              <div id="listing-overview" class="listing-section">
+              <div id="listing-overview" class="listing-section" class="boxed-widget margin-top-2">
+              <h3 class="listing-desc-headline">Description</h3>
                 <p>{this.state.location.description}</p>
               </div>
-              <div id="listing-amenities" class="listing-section">
+              <div id="listing-amenities" class="listing-section" class="boxed-widget margin-top-2">
                 <h3 class="listing-desc-headline">Amenities</h3>
                 <ul class="listing-features checkboxes margin-top-0">
                   {locationAmenities}
                 </ul>
               </div>
-              <div id="listing-pricing-list" class="listing-section">
-                <h3 class="listing-desc-headline margin-top-70 margin-bottom-30">
-                  Price - <span>{this.state.location.price} rs/day</span>
+              <div id="listing-pricing-list" class="listing-section" class="boxed-widget margin-top-2">
+                <h3 class="listing-desc-headline ">
+                  Price
                 </h3>
+                <p>{this.state.location.price} Rs/day</p>
               </div>
 
-              <div id="listing-address" class="listing-section">
-                <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">
+              <div id="listing-address" class="listing-section" class="boxed-widget margin-top-2">
+                <h3 class="listing-desc-headline">
                   Address
                 </h3>
                 <address>
@@ -168,7 +173,7 @@ initialCenter={{
       />
             </div> */}
 
-              <div id="listing-map" class="listing-section">
+              {/* <div id="listing-map" class="listing-section">
                 <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">
                   Map
                 </h3>
@@ -181,7 +186,7 @@ initialCenter={{
                     lng: 36.8233
                   }}
                 />
-              </div>
+              </div> */}
             </div>
             <div class="col-lg-4 col-md-4 margin-top-75 sticky">
               <div
@@ -190,84 +195,8 @@ initialCenter={{
               >
                 <i class="sl sl-icon-check" /> Verified Listing
               </div>
-              <div class="boxed-widget booking-widget margin-top-35">
-                <h3>
-                  <i class="fa fa-calendar-check-o " /> Book a Table
-                </h3>
-                <div class="row with-forms  margin-top-0">
-                  <div class="col-lg-6 col-md-12">
-                    <input
-                      type="text"
-                      id="booking-date"
-                      data-lang="en"
-                      data-large-mode="true"
-                      data-large-default="true"
-                      data-min-year="2017"
-                      data-max-year="2020"
-                      data-lock="from"
-                    />
-                  </div>
-                  <div class="col-lg-6 col-md-12">
-                    <input type="text" id="booking-time" value="9:00 am" />
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="panel-dropdown">
-                      <a href="#">
-                        Guests{" "}
-                        <span class="qtyTotal" name="qtyTotal">
-                          1
-                        </span>
-                      </a>
-                      <div class="panel-dropdown-content">
-                        <div class="qtyButtons">
-                          <div class="qtyTitle">Adults</div>
-                          <input type="text" name="qtyInput" value="1" />
-                        </div>
-
-                        <div class="qtyButtons">
-                          <div class="qtyTitle">Childrens</div>
-                          <input type="text" name="qtyInput" value="0" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  href="pages-booking.html"
-                  class="button book-now fullwidth margin-top-5"
-                >
-                  Book Now
-                </a>
-              </div>
-              <div class="boxed-widget opening-hours margin-top-35">
-                <div class="listing-badge now-open">Now Open</div>
-                <h3>
-                  <i class="sl sl-icon-clock" /> Opening Hours
-                </h3>
-                <ul>
-                  <li>
-                    Monday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Tuesday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Wednesday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Thursday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Friday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Saturday <span>9 AM - 3 PM</span>
-                  </li>
-                  <li>
-                    Sunday <span>Closed</span>
-                  </li>
-                </ul>
-              </div>
+              
+             
               <div class="boxed-widget margin-top-35">
                 <div class="hosted-by-title">
                   <h4>
@@ -340,36 +269,37 @@ initialCenter={{
                   <i class="sl sl-icon-envelope-open" /> Send Message
                 </a>
               </div>
-              <div class="listing-share margin-top-40 margin-bottom-40 no-border">
-                <button class="like-button">
-                  <span class="like-icon" /> Bookmark this listing
-                </button>
-                <span>159 people bookmarked this place</span>
-                <ul class="share-buttons margin-top-40 margin-bottom-0">
+              
+            </div>
+            <div class="boxed-widget opening-hours margin-top-35">
+                <div class="listing-badge now-open">Now Open</div>
+                <h3>
+                  <i class="sl sl-icon-clock" /> Opening Hours
+                </h3>
+                <ul>
                   <li>
-                    <a class="fb-share" href="#">
-                      <i class="fa fa-facebook" /> Share
-                    </a>
+                    Monday <span>9 AM - 5 PM</span>
                   </li>
                   <li>
-                    <a class="twitter-share" href="#">
-                      <i class="fa fa-twitter" /> Tweet
-                    </a>
+                    Tuesday <span>9 AM - 5 PM</span>
                   </li>
                   <li>
-                    <a class="gplus-share" href="#">
-                      <i class="fa fa-google-plus" /> Share
-                    </a>
+                    Wednesday <span>9 AM - 5 PM</span>
                   </li>
                   <li>
-                    <a class="pinterest-share" href="#">
-                      <i class="fa fa-pinterest-p" /> Pin
-                    </a>
+                    Thursday <span>9 AM - 5 PM</span>
+                  </li>
+                  <li>
+                    Friday <span>9 AM - 5 PM</span>
+                  </li>
+                  <li>
+                    Saturday <span>9 AM - 3 PM</span>
+                  </li>
+                  <li>
+                    Sunday <span>Closed</span>
                   </li>
                 </ul>
-                <div class="clearfix" />
               </div>
-            </div>
           </div>
         </div>
       </div>

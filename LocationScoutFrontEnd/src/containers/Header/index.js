@@ -57,7 +57,7 @@ class Header extends Component {
     const guestLinks = (
       <div class="header-widget">
         <a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim">
-          <i class="sl sl-icon-login" /> Sign In
+          <i class="sl sl-icon-login" /> SignIn/SignUp
         </a>
         <a href="/dashboard/addLocation" class="button border with-icon">
           Add Listing <i class="sl sl-icon-plus" />
@@ -136,7 +136,7 @@ class Header extends Component {
                           {locationCategories}
                         </ul>
                       </li>
-                      <li>
+                      {/* <li>
                         <a href="/listings/costumes">Costumes</a>
                         <ul>
                           <li>
@@ -204,7 +204,7 @@ class Header extends Component {
                             </a>
                           </li>
                         </ul>
-                      </li>
+                      </li> */}
                     </ul>
                   </li>
                   <li>

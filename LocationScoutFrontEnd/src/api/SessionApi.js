@@ -45,6 +45,24 @@ class SessionApi {
     // });
   }
 
+  static sendEmail(emailDetails) {
+    debugger;
+    var endPoint = BASE_URL + "auth/contactus";
+    var bodyFormData = new FormData();
+    bodyFormData.set("senderEmail", emailDetails.senderEmail);
+    bodyFormData.set("senderName", emailDetails.senderName);
+    bodyFormData.set("emailSubject", emailDetails.emailSubject);
+    bodyFormData.set("emailBody", emailDetails.emailBody);
+    
+    return axios.post(endPoint, bodyFormData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+        }
+    });
+  }
+
+
+
   static getUserDetails(userId) {
     return fetch(BASE_URL + "users/" + userId)
       .then(response => {

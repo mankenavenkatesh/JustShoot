@@ -58,25 +58,26 @@ class MainSearch extends Component {
                     >
                       <option label="Select City">Select City</option>
                       <option value="Hyderabad">Hyderabad</option>
-                      <option value="Bangalore">Bangalore</option>
+                      {/* <option value="Bangalore">Bangalore</option>
                       <option value="Mysore">Mysore</option>
-                      <option value="Vizag">Vizag</option>
+                      <option value="Vizag">Vizag</option> */}
                     </select>
                   </div>
 
                   <div class="main-search-input-item">
                     {/* <input type="text" placeholder="What are you looking for?" value="" /> */}
                     <select data-placeholder="Listings" class="chosen-select">
-                      <option>Select Listings</option>
+                      {/* <option>Select Listings</option> */}
                       <option>Shooting Locations</option>
-                      <option>Costumes</option>
-                      <option>Equipments</option>
+                      {/* <option>Costumes</option> */}
+                      {/* <option>Equipments</option> */}
                     </select>
                   </div>
 
                   <div class="main-search-input-item">
                     <select name="locationCategoryId" onChange={this.onChange}>
                       <option>Select Category</option>
+                      <option key={0} value="0">All</option>
                       {categories}
                     </select>
                   </div>

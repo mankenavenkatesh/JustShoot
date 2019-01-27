@@ -27,9 +27,7 @@ class ListingsGridContent extends React.Component {
     this.filterLocations();
   }
 
-  render() {
-    console.log("oiasrjghpo");
-    console.log(this.state.locations);
+  render() {      
     var myLocationsList = this.state.locations.map(function(location) {
       return (
         <div key={location.id} class="col-lg-6 col-md-12">

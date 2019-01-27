@@ -109,21 +109,19 @@ export function addMyLocation(newlocation) {
 }
 
 export function deleteLocation(locationId) {
-  // debugger
   return function(dispatch) {
     // debugger
     return locationsApi
       .deleteLocation(locationId)
       .then(response => {
-        if (response.status == "200") {
-          debugger;
+        if (response.status == "200") {    
+          debugger      
           dispatch(
             addFlashMessage({
               type: "success",
               text: "Your Location Deleted Successfully."
             })
-          );
-          console.log(response);
+          );          
           dispatch(locationDeleted(response.data.id));
         }
       })
