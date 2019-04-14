@@ -42,7 +42,9 @@ class MyLocations extends Component {
             </div>
           </div>
           <div class="col-md-12">
-            <div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+            <div class="copyrights">
+              © 2019 JustShootNow. All Rights Reserved.
+            </div>
           </div>
         </div>
       </div>

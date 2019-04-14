@@ -207,7 +207,7 @@ class Header extends Component {
                       </li> */}
                     </ul>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="#">User Panel</a>
                     <ul>
                       <li>
@@ -222,12 +222,25 @@ class Header extends Component {
                       <li>
                         <a href="/dashboard/myProfile">My Profile</a>
                       </li>
-                      {/* <li><a href="dashboard-reviews.html">Reviews</a></li>
-                                        <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-                                        <li><a href="dashboard-invoice.html">Invoice</a></li>
-                                        <li><a href="dashboard-messages.html">Messages</a></li>
-                                        <li><a href="dashboard-bookings.html">Bookings</a></li> */}
                     </ul>
+                  </li> */}
+                  <li>
+                    <a href="/contests">Contests</a>
+                    <ul>
+                      <li>
+                        <a href="/contests/shortfilms">Short films</a>
+                        <ul>
+                          <li key={0}>
+                            <Link to={`/contests/shortfilms/mgit`}>
+                              MGIT-Nirvana 2019
+                            </Link>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/requirements">Job Requirements</a>
                   </li>
                 </ul>
               </nav>

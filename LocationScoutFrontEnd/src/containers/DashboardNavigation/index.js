@@ -1,5 +1,6 @@
 import { Route, Link } from "react-router-dom";
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class DashboardNavigation extends Component {
   render() {
@@ -24,10 +25,13 @@ class DashboardNavigation extends Component {
               <ul>
                 <li>
                   <Link to="/dashboard/myLocations">
-                    My Locations <span class="nav-tag green">6</span>
+                    My Locations{" "}
+                    <span class="nav-tag green">
+                      {this.props.myLocations.length}
+                    </span>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <a href="/dashboard/myLocations">
                     My Costumes <span class="nav-tag yellow">1</span>
                   </a>
@@ -36,7 +40,7 @@ class DashboardNavigation extends Component {
                   <a href="/dashboard/myLocations">
                     My Equipment <span class="nav-tag red">2</span>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li class="active">
@@ -47,12 +51,12 @@ class DashboardNavigation extends Component {
                 <li>
                   <Link to="/dashboard/addLocation">Add Locations</Link>
                 </li>
-                <li>
+                {/* <li>
                   <a href="/dashboard/addLocation">Add Costumes </a>
                 </li>
                 <li>
                   <a href="/dashboard/addLocation">Add Equipment </a>
-                </li>
+                </li> */}
               </ul>
             </li>
             {/* <li><a href="dashboard-reviews.html"><i class="sl sl-icon-star"></i> Reviews</a></li>
@@ -77,4 +81,13 @@ class DashboardNavigation extends Component {
   }
 }
 
-export default DashboardNavigation;
+function mapStateToProps(state) {
+  return {
+    myLocations: state.myLocations
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(DashboardNavigation);

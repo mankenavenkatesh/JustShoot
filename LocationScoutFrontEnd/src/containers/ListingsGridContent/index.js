@@ -27,7 +27,7 @@ class ListingsGridContent extends React.Component {
     this.filterLocations();
   }
 
-  render() {      
+  render() {
     var myLocationsList = this.state.locations.map(function(location) {
       return (
         <div key={location.id} class="col-lg-6 col-md-12">
@@ -55,7 +55,7 @@ class ListingsGridContent extends React.Component {
               <span class="like-icon" />
             </div>
             <div class="star-rating" data-rating="3.5">
-              <div class="rating-counter">(12 reviews)</div>
+              <div class="rating-counter">(0 reviews)</div>
             </div>
           </a>
         </div>

@@ -6,6 +6,7 @@ import flashMessages from "./../reducers/flashMessage.js";
 import myLocations from "./../reducers/shootinglocations.js";
 import locationCategories from "./../reducers/locationCategories.js";
 import locationAmenities from "./../reducers/locationAmenities.js";
+import requirements from "./../reducers/requirements.js";
 
 const rootReducer = combineReducers({
   routing: routerReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   myLocations,
   locationCategories,
   locationAmenities,
-  flashMessages
+  flashMessages,
+  requirements
 });
 export default rootReducer;

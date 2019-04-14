@@ -53,9 +53,20 @@ class MyLocationsList extends React.Component {
           </div> */}
 
           <div class="buttons-to-right">
-                <Link to={"/dashboard/editLocation/" + location.id} class="button gray"> <i class="sl sl-icon-note" /> Edit </Link>								
-								<a onClick={deleteLocation.bind(this, location.id)} class="button gray"><i class="sl sl-icon-close"></i> Delete</a>
-					</div>
+            <Link
+              to={"/dashboard/editLocation/" + location.id}
+              class="button gray"
+            >
+              {" "}
+              <i class="sl sl-icon-note" /> Edit{" "}
+            </Link>
+            <a
+              onClick={deleteLocation.bind(this, location.id)}
+              class="button gray"
+            >
+              <i class="sl sl-icon-close" /> Delete
+            </a>
+          </div>
         </li>
       );
     });

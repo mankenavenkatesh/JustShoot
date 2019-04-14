@@ -11,7 +11,7 @@ class Footer extends React.Component {
       senderEmail: "Enter Your Email Address",
       emailSubject: "",
       emailBody: "Enter Query here...",
-      status : ""      
+      status: ""
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -22,10 +22,11 @@ class Footer extends React.Component {
   }
 
   sendEmail() {
-    sessionApi.sendEmail(this.state)
+    sessionApi
+      .sendEmail(this.state)
       .then(response => {
-        debugger
-        if (response.status == "200") {          
+        debugger;
+        if (response.status == "200") {
           this.setState({ status: "Email Sent Successfully" });
           this.setState({ senderName: "Enter Your Name" });
           this.setState({ senderEmail: "Enter Your Email Address" });
@@ -39,7 +40,7 @@ class Footer extends React.Component {
   }
 
   onSubmit(e) {
-    debugger
+    debugger;
     e.preventDefault();
     this.sendEmail();
   }
@@ -51,32 +52,59 @@ class Footer extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-5 col-sm-6">
-              <h4>Just Shoot</h4>
+              <h4>JustShootNow</h4>
               <p>
-                Justshoot is a marketplace for Shooting locations. Location Owners can enroll, add their shooting locations, manage the availability of locations etc. Location Scouters can search the desired location, find facilities of a location, book the location etc.
+                Justshoot is a marketplace for Shooting locations. Location
+                Owners can enroll, add their shooting locations, manage the
+                availability of locations etc. Location Scouters can search the
+                desired location, find facilities of a location, book the
+                location etc. <br />
+                <br />
+                <span>Email</span> - justshootnow.info@gmail.com <br />
+                Phone No - 8880746896, 91-6302193293
               </p>
             </div>
-           
+
             <div className="col-md-6  col-sm-12">
               <h4>Contact Us</h4>
               <div>
-              {/* <span>JustShootNow</span> <br />
+                {/* <span>JustShootNow</span> <br />
               <span>Kondapur, Hyderabad</span> <br /> */}
                 {/* Phone:  <span>8880746896 </span> <br />
                 E-Mail:  <span>justshootnow.info@gmail.com </span> <br />     */}
-                <form onSubmit={this.onSubmit}>              
-                 <input type="text" class="input-text" name="senderName" id="senderName" value={this.state.senderName} onChange={this.onChange} />                                                                                                        
-                 <input class="input-text" type="text" name="senderEmail" id="senderEmail" value={this.state.senderEmail} onChange={this.onChange} />                                                                            
-                 <textarea rows="4" cols="50" name="emailBody" value={this.state.emailBody}  onChange={this.onChange} ></textarea>                 
+                <form onSubmit={this.onSubmit}>
+                  <input
+                    type="text"
+                    class="input-text"
+                    name="senderName"
+                    id="senderName"
+                    value={this.state.senderName}
+                    onChange={this.onChange}
+                  />
+                  <input
+                    class="input-text"
+                    type="text"
+                    name="senderEmail"
+                    id="senderEmail"
+                    value={this.state.senderEmail}
+                    onChange={this.onChange}
+                  />
+                  <textarea
+                    rows="4"
+                    cols="50"
+                    name="emailBody"
+                    value={this.state.emailBody}
+                    onChange={this.onChange}
+                  />
                   {/* <input type="submit"  />    */}
                   <div className="form-group">
-                  <input
-                    type="submit"
-                    class="button border fw margin-top-10"
-                    name="sendMail"
-                    value="Send Email"
-                  />
-                </div>                 
+                    <input
+                      type="submit"
+                      class="button border fw margin-top-10"
+                      name="sendMail"
+                      value="Send Email"
+                    />
+                  </div>
                 </form>
                 <span>{this.state.status}</span>
                 {/* <span>
@@ -89,13 +117,15 @@ class Footer extends React.Component {
                       [justshootnow.info@gmail.com]
                     </span>
                   </a>{" "}
-                </span> */}                            
-                  {/* <a href="#email-dialog" class="button border with-icon sign-in popup-with-zoom-anim"> Send Email </a><br />  */}
-
+                </span> */}
+                {/* <a href="#email-dialog" class="button border with-icon sign-in popup-with-zoom-anim"> Send Email </a><br />  */}
               </div>
               <ul className="social-icons margin-top-20">
                 <li>
-                  <a className="facebook" href="https://www.facebook.com/justshootnow/?eid=ARCkOX2FoRUqI3tyCdob8efggucK4EDzVoeCq6CHPw2kSAE9tN4y-HJxTvKbyu6X9BBjdJsT4erpI70c">
+                  <a
+                    className="facebook"
+                    href="https://www.facebook.com/justshootnow/?eid=ARCkOX2FoRUqI3tyCdob8efggucK4EDzVoeCq6CHPw2kSAE9tN4y-HJxTvKbyu6X9BBjdJsT4erpI70c"
+                  >
                     <i className="icon-facebook" />
                   </a>
                 </li>
@@ -105,12 +135,18 @@ class Footer extends React.Component {
                   </a>
                 </li>
                 <li>
-                  <a className="gplus" href="https://plus.google.com/u/2/discover">
+                  <a
+                    className="gplus"
+                    href="https://plus.google.com/u/2/discover"
+                  >
                     <i className="icon-gplus" />
                   </a>
                 </li>
                 <li>
-                  <a className="youtube" href="#">
+                  <a
+                    className="youtube"
+                    href="https://www.youtube.com/channel/UCzbWHK7thPf8LJz7PEHBqDQ"
+                  >
                     <i className="icon-youtube" />
                   </a>
                 </li>

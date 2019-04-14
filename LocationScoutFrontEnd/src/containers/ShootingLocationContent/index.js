@@ -50,7 +50,7 @@ class ShootingLocationContent extends React.Component {
         //     </div>
         <div key={photo.id}>
           <img src={photo.filepath} />
-          <p className="legend">{photo.filename}</p>
+          {/* <p className="legend">{photo.filename}</p> */}
         </div>
       );
     });
@@ -91,13 +91,11 @@ class ShootingLocationContent extends React.Component {
                       <i class="fa fa-map-marker" />
                       {this.state.location.city},{this.state.location.state}
                     </a>
-                  </span>                 
+                  </span>
                   <div class="star-rating" data-rating="5">
                     <div class="rating-counter">
                       {/* <a href="#listing-reviews">(0 reviews)</a> */}
-                      <span>
-                      Price - {this.state.location.price} Rs/day
-                    </span>                      
+                      <span>Price - {this.state.location.price} Rs/day</span>
                     </div>
                   </div>
                 </div>
@@ -119,9 +117,7 @@ class ShootingLocationContent extends React.Component {
                   <li>
                     <a href="#listing-address">Address</a>
                   </li>
-                  <li>
-                    {/* <a href="#listing-map">Map</a> */}
-                  </li>
+                  <li>{/* <a href="#listing-map">Map</a> */}</li>
                   {/* <li>
                   <a href="#listing-reviews">Reviews</a>
                 </li>
@@ -130,27 +126,39 @@ class ShootingLocationContent extends React.Component {
                 </li> */}
                 </ul>
               </div>
-              <div id="listing-overview" class="listing-section" class="boxed-widget margin-top-2">
-              <h3 class="listing-desc-headline">Description</h3>
+              <div
+                id="listing-overview"
+                class="listing-section"
+                class="boxed-widget margin-top-2"
+              >
+                <h3 class="listing-desc-headline">Description</h3>
                 <p>{this.state.location.description}</p>
               </div>
-              <div id="listing-amenities" class="listing-section" class="boxed-widget margin-top-2">
+              <div
+                id="listing-amenities"
+                class="listing-section"
+                class="boxed-widget margin-top-2"
+              >
                 <h3 class="listing-desc-headline">Amenities</h3>
                 <ul class="listing-features checkboxes margin-top-0">
                   {locationAmenities}
                 </ul>
               </div>
-              <div id="listing-pricing-list" class="listing-section" class="boxed-widget margin-top-2">
-                <h3 class="listing-desc-headline ">
-                  Price
-                </h3>
+              <div
+                id="listing-pricing-list"
+                class="listing-section"
+                class="boxed-widget margin-top-2"
+              >
+                <h3 class="listing-desc-headline ">Price</h3>
                 <p>{this.state.location.price} Rs/day</p>
               </div>
 
-              <div id="listing-address" class="listing-section" class="boxed-widget margin-top-2">
-                <h3 class="listing-desc-headline">
-                  Address
-                </h3>
+              <div
+                id="listing-address"
+                class="listing-section"
+                class="boxed-widget margin-top-2"
+              >
+                <h3 class="listing-desc-headline">Address</h3>
                 <address>
                   {this.state.location.addressdesc} ,<br />
                   City - {this.state.location.city} ,<br />
@@ -195,8 +203,7 @@ initialCenter={{
               >
                 <i class="sl sl-icon-check" /> Verified Listing
               </div>
-              
-             
+
               <div class="boxed-widget margin-top-35">
                 <div class="hosted-by-title">
                   <h4>
@@ -269,37 +276,36 @@ initialCenter={{
                   <i class="sl sl-icon-envelope-open" /> Send Message
                 </a>
               </div>
-              
             </div>
             <div class="boxed-widget opening-hours margin-top-35">
-                <div class="listing-badge now-open">Now Open</div>
-                <h3>
-                  <i class="sl sl-icon-clock" /> Opening Hours
-                </h3>
-                <ul>
-                  <li>
-                    Monday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Tuesday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Wednesday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Thursday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Friday <span>9 AM - 5 PM</span>
-                  </li>
-                  <li>
-                    Saturday <span>9 AM - 3 PM</span>
-                  </li>
-                  <li>
-                    Sunday <span>Closed</span>
-                  </li>
-                </ul>
-              </div>
+              <div class="listing-badge now-open">Now Open</div>
+              <h3>
+                <i class="sl sl-icon-clock" /> Opening Hours
+              </h3>
+              <ul>
+                <li>
+                  Monday <span>9 AM - 5 PM</span>
+                </li>
+                <li>
+                  Tuesday <span>9 AM - 5 PM</span>
+                </li>
+                <li>
+                  Wednesday <span>9 AM - 5 PM</span>
+                </li>
+                <li>
+                  Thursday <span>9 AM - 5 PM</span>
+                </li>
+                <li>
+                  Friday <span>9 AM - 5 PM</span>
+                </li>
+                <li>
+                  Saturday <span>9 AM - 3 PM</span>
+                </li>
+                <li>
+                  Sunday <span>Closed</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

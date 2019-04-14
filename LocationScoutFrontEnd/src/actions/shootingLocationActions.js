@@ -114,15 +114,15 @@ export function deleteLocation(locationId) {
     return locationsApi
       .deleteLocation(locationId)
       .then(response => {
-        if (response.status == "200") {    
-          debugger      
-          dispatch(
-            addFlashMessage({
-              type: "success",
-              text: "Your Location Deleted Successfully."
-            })
-          );          
-          dispatch(locationDeleted(response.data.id));
+        if (response.status == "200") {
+          debugger;
+          // dispatch(
+          //   addFlashMessage({
+          //     type: "success",
+          //     text: "Your Location Deleted Successfully."
+          //   })
+          // );
+          dispatch(locationDeleted(locationId));
         }
       })
       .catch(error => {
@@ -132,5 +132,6 @@ export function deleteLocation(locationId) {
 }
 
 export function locationDeleted(locationId) {
+  console.log("Deleted LocationId-" + locationId);
   return { type: types.LOCATION_DELETED, locationId };
 }

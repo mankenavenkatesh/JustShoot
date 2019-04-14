@@ -47,8 +47,11 @@ class MainSearch extends Component {
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h2>Just Shoot</h2>
-                <h4>Explore Shooting Locations, Costumes, Equipments </h4>
+                <h2>JustShootNow</h2>
+                <h4>
+                  Explore Shooting Locations for Feature Films, Serials, Short
+                  Films, PhotoShoots etc
+                </h4>
                 <div class="main-search-input">
                   <div class="main-search-input-item">
                     <select
@@ -58,9 +61,32 @@ class MainSearch extends Component {
                     >
                       <option label="Select City">Select City</option>
                       <option value="Hyderabad">Hyderabad</option>
-                      {/* <option value="Bangalore">Bangalore</option>
-                      <option value="Mysore">Mysore</option>
-                      <option value="Vizag">Vizag</option> */}
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Lonavala">Lonavala</option>
+                      <option value="Panchgani">Panchgani</option>
+                      <option value="Mahabaleshwar">Mahabaleshwar</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Bangalore">Bangalore</option>
+                      <option value="Ahmedabad">Ahmedabad</option>
+                      <option value="Chennai">Chennai</option>
+                      <option value="Kolkata">Kolkata</option>
+                      <option value="Surat">Surat</option>
+                      <option value="Pune">Pune</option>
+                      <option value="Jaipur">Jaipur</option>
+                      <option value="Lucknow">Lucknow</option>
+                      <option value="Kanpur">Kanpur</option>
+                      <option value="Nagpur">Nagpur</option>
+                      <option value="Visakhapatnam">Visakhapatnam</option>
+                      <option value="Indore">Indore</option>
+                      <option value="Thane">Thane</option>
+                      <option value="Bhopal">Bhopal</option>
+                      <option value="Patna">Patna</option>
+                      <option value="Vadodara">Vadodara</option>
+                      <option value="Ghaziabad">Ghaziabad</option>
+                      <option value="Ludhiana">Ludhiana</option>
+                      <option value="Coimbatore">Coimbatore</option>
+                      <option value="Agra">Agra</option>
+                      <option value="Madurai">Madurai</option>
                     </select>
                   </div>
 
@@ -77,7 +103,9 @@ class MainSearch extends Component {
                   <div class="main-search-input-item">
                     <select name="locationCategoryId" onChange={this.onChange}>
                       <option>Select Category</option>
-                      <option key={0} value="0">All</option>
+                      <option key={0} value="0">
+                        All
+                      </option>
                       {categories}
                     </select>
                   </div>
