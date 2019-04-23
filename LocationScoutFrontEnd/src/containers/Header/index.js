@@ -1,7 +1,7 @@
 import { Route, Link } from "react-router-dom";
 import React, { Component } from "react";
 import SignInDialog from "../SignInDialog";
-import { logout } from "../../actions/sessionActions";
+import { logout, fetchUserProfile } from "../../actions/sessionActions";
 import { connect } from "react-redux";
 import { fetchLocationCategories } from "./../../actions/shootingLocationCategoryActions";
 import { fetchLocationAmenities } from "./../../actions/shootingLocationAmenitiesActions";
@@ -19,6 +19,7 @@ class Header extends Component {
   componentWillMount() {
     this.props.fetchLocationCategories();
     this.props.fetchLocationAmenities();
+    this.props.fetchUserProfile();
   }
 
   render() {
@@ -28,7 +29,7 @@ class Header extends Component {
         <div class="user-menu">
           <div class="user-name">
             <span>
-              <img src="images/dashboard-avatar.jpg" alt="" />
+              <img src={this.props.myProfile.profilePic} alt="" />
             </span>
             My Account
           </div>
@@ -261,11 +262,12 @@ class Header extends Component {
 const mapStateToProps = state => {
   return {
     authenticated: state.auth.authenticated,
-    locationCategories: state.locationCategories
+    locationCategories: state.locationCategories,
+    myProfile: state.myProfile
   };
 };
 
 export default connect(
   mapStateToProps,
-  { logout, fetchLocationCategories, fetchLocationAmenities }
+  { logout, fetchLocationCategories, fetchLocationAmenities, fetchUserProfile }
 )(Header);

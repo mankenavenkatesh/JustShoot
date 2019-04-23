@@ -72,24 +72,35 @@ class SessionApi {
       });
   }
 
-  static updateUserDetails(userInfo) {
-    console.log("updateUserDetails api called.");
-    // debugger;
-    const request = new Request(BASE_URL + "users/", {
-      method: "POST",
-      headers: new Headers({
-        "Content-Type": "application/json"
-      }),
-      body: JSON.stringify(userInfo)
+  static getProfile() {
+    var endpoint = BASE_URL + "auth/";
+    var authorization = localStorage.getItem("authorization");
+    return axios.get(endpoint, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization
+      }
     });
+  }
 
-    return fetch(request)
-      .then(response => {
-        return response.json();
-      })
-      .catch(error => {
-        return error;
-      });
+  static updateProfile(userProfile) {
+    var endpoint = BASE_URL + "auth/";
+    var bodyFormData = new FormData();
+    bodyFormData.set("name", userProfile.name);
+    bodyFormData.set("phoneNumber", userProfile.phoneNumber);
+    bodyFormData.set("description", userProfile.description);
+    bodyFormData.set("facebookUrl", userProfile.facebookUrl);
+    bodyFormData.set("twitterUrl", userProfile.twitterUrl);
+    bodyFormData.set("youtubeUrl", userProfile.youtubeUrl);
+    bodyFormData.set("profilePic", userProfile.profilePic);
+
+    var authorization = localStorage.getItem("authorization");
+    return axios.post(endpoint, bodyFormData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: authorization
+      }
+    });
   }
 }
 

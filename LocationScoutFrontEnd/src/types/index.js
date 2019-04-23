@@ -9,6 +9,7 @@ export const SET_LOCATION_AMENITIES = "SET_LOCATION_AMENITIES";
 export const ADD_FLASH_MESSAGE = "ADD_FLASH_MESSAGE";
 export const DELETE_FLASH_MESSAGE = "DELETE_FLASH_MESSAGE";
 export const AUTH_USER = "auth_user";
+export const ADD_MY_PROFILE = "ADD_MY_PROFILE";
 export const UNAUTH_USER = "unauth_user";
 export const AUTH_ERROR = "auth_error";
 export const FETCH_FEATURE = "fetch_feature";

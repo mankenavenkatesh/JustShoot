@@ -30,6 +30,13 @@ class DashboardNavigation extends Component {
                       {this.props.myLocations.length}
                     </span>
                   </Link>
+
+                  <Link to="/dashboard/myCrafts">
+                    My Crafts{" "}
+                    <span class="nav-tag green">
+                      {/* {this.props.myCrafts.length} */}
+                    </span>
+                  </Link>
                 </li>
                 {/* <li>
                   <a href="/dashboard/myLocations">
@@ -51,6 +58,9 @@ class DashboardNavigation extends Component {
                 <li>
                   <Link to="/dashboard/addLocation">Add Locations</Link>
                 </li>
+                <li>
+                  <Link to="/dashboard/addCraft">Add Crafts</Link>
+                </li>
                 {/* <li>
                   <a href="/dashboard/addLocation">Add Costumes </a>
                 </li>
@@ -65,9 +75,9 @@ class DashboardNavigation extends Component {
 
           <ul data-submenu-title="Account">
             <li>
-              <a href="dashboard-my-profile.html">
+              <Link to="/dashboard/myProfile">
                 <i class="sl sl-icon-user" /> My Profile
-              </a>
+              </Link>
             </li>
             <li>
               <a href="index.html">
